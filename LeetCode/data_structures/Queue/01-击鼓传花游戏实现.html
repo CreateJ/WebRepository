@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-击鼓传花游戏实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: #204051;
+        }
+        .big-container {
+            width: 600px;
+            height: auto;
+            /*height: 500px;*/
+            margin: 200px auto;
+            background-color: #84a9ac;
+            border-top: 1px solid transparent;
+            padding: 20px 0;
+        }
+        .title {
+            width: 600px;
+            height: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #e7dfd5;
+            font-size: 40px;
+        }
+        .box {
+            width: 350px;
+            margin: 10px auto;
+            background-color: #204051;
+        }
+        .record {
+            height: 86px;
+        }
+        .play {
+            height: 86px;
+        }
+        button {
+             width: 50px;
+             height: 80px;
+             font-size: 20px;
+             color: white;
+             background-color: #3b6978;
+             border: 0;
+             outline: none;
+             float: left;
+         }
+        .text {
+            width: 260px;
+        }
+        .playNum {
+            width: 260px;
+        }
+        textarea {
+            height: 40px;
+            line-height: 40px;
+            font-size: 30px;
+            background-color: #e7dfd5;
+            border: 0;
+            outline: none;
+            resize: none;
+            float: left;
+            padding: 20px;
+        }
+        ul {
+            width: 350px;
+            height: auto;
+            margin: 20px auto;
+        }
+        .liText {
+            width: 350px;
+            height: 40px;
+            text-align: left;
+            margin-bottom: 10px;
+            background-color: #204051;
+        }
+        .liText .iText {
+            display: block;
+            width: 310px;
+            height: 35px;
+            font-size: 30px;
+            line-height: 30px;
+            padding: 0 20px;
+            color: #e7dfd5;
+            background-color: #3b6978;
+        }
+
+    </style>
+    <script src="structural.js"></script>
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<div id="flower" class="big-container">
+    <h1 class="title">击鼓传花小游戏</h1>
+    <div class="box record">
+        <textarea name="" class="text" cols="30" rows="5"></textarea>
+        <button class="send" @click="enter">记录</button>
+    </div>
+    <div class="box play">
+        <textarea name="" class="playNum" cols="30" rows="5"></textarea>
+        <button class="send" @click="play">开始</button>
+    </div>
+    <ul class="queue">
+        <li class='liText' v-for="item in queue.items">
+            <span class="iText">{{item}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    let flower = new Vue({
+        el: '#flower',
+        data: {
+            i: 0,
+            queue: new Queue(),
+        },
+        methods: {
+            enter: function () {
+                this.queue.enQueue($('textarea').val());
+                $('textarea').val('');
+            },
+            play: function () {
+                let j = 0;
+                let playNum = parseInt($('.playNum').val());
+                while(j < playNum-1){
+                    this.queue.enQueue(this.queue.deQueue());
+                    j++;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

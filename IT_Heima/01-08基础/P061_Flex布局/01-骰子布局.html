@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex骰子布局</title>
+  <link rel="stylesheet" href="01-骰子布局.css">
+</head>
+<body>
+</body>
+<script>
+  function new_arr(){
+    var arr = new Array();
+    for(var i = 0; i < 10; i++){
+      arr[i] = function (){
+        return function (i){
+          return i;
+        }
+      };
+    }
+    return arr;
+  }
+  var arr = new_arr();
+  console.log(arr[5]());
+</script>
+</html>

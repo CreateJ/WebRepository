@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <comp></comp>
+    <comp></comp>
+    <comp></comp>
+    <comp></comp>
+  </div>
+  <script src="../../js/vue.js"></script>
+  <script>
+    Vue.component('comp',{
+      data: function(){
+        return {
+          num: 0,
+        }
+      },
+      template: `
+        <div>
+          <h2>当前计数{{num}}</h2>
+            <button @click="num++">inc</button>
+            <button @click="num--">sub</button>  
+        </div>
+      `
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: ''
+      }
+    })
+  </script>
+</body>
+</html>

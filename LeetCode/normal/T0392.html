@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>392. 判断子序列</title>
+</head>
+<body>
+<script>
+    let s = 'aaaaaa';
+    let t = 'bbaaaa';
+    function isSubsequence(s,t){
+        let flag = 0;
+        let str_num = 0;
+        for(let i=0; i < s.length; i++){
+            for(let j = flag ;j < t.length; j++){
+                if(s[i] == t[j]){
+                    flag = j++;
+                    str_num++;
+                    break;
+                }
+            }
+        }
+        return str_num == s.length;
+    }
+
+    console.log(isSubsequence(s,t));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tab选项卡</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    #app {
+      width: 500px;
+      height: 500px;
+      margin: 100px auto;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      display: inline-block;
+      width: 80px;
+      height: 30px;
+      /*border: 2px solid lightblue;*/
+      background: #118ab2;
+      text-align: center;
+      line-height: 30px;
+    }
+    .img {
+      display: none;
+      width: 500px;
+      height: 400px;
+      background: #073b4c;
+      text-align: center;
+      font-size: 80px;
+      line-height: 400px;
+      color: #EEE;
+    }
+    .current {
+      display: block;
+    }
+    .choice {
+      background: #ffd166;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul class="tab">
+    <li @click="changeIndex(index)" :class="currentIndex == index ? 'choice' : ''" :key="item.id" v-for="(item,index) in fruit">{{item.name}}</li>
+  </ul>
+  <div class="img" :style="'background: '+item.color" :class="currentIndex == index ? 'current' : '' " :key="item.id" v-for="(item,index) in fruit">{{item.color}}</div>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      currentIndex: 0,//通过索引来修改类名
+      fruit: [{
+        name: 'Apple',
+        color: 'red',
+        id: 1
+      }, {
+        name: 'Banana',
+        color: 'yellow',
+        id: 2
+      }, {
+        name: 'Pear',
+        color: 'green',
+        id: 3
+      }]
+    },
+    methods: {
+      changeIndex: function (index){
+        this.currentIndex = index;
+      }
+    }
+  })
+</script>
+</body>
+</html>

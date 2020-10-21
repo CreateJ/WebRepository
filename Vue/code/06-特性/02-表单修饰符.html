@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>表单修饰符</title>
+</head>
+<body>
+<div id="app">
+  <!--number修饰符能够在获取元素内容的是偶直接将内容转换成数值-->
+  <input type="text" v-model.number="num1">
+  <button @click="add1">加13</button>
+  <br>
+  <input type="text" v-model="num2">
+  <button @click="add2">加13</button>
+  <br>
+  <!--trim修饰符能够在获取元素内容的时候直接去除前后空格-->
+  <input type="text" v-model.trim="str1">
+  <button @click="show1">输出</button>
+  <br>
+  <input type="text" v-model="str2">
+  <button @click="show2">输出</button>
+  <br>
+  <!--lazy能够让表单内容在失去焦点之后，才展示双绑效果-->
+  <input type="text" v-model.lazy="text" @change="showMsg">
+  <span>{{msg}}</span>
+  <span>{{text}}</span>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      num1: '',
+      num2: '',
+      str1: '',
+      str2: '',
+      text: '',
+      msg: '',
+    },
+    methods: {
+      // 输入框输入12
+      add1: function () {
+        console.log(this.num1 + 13);  //25,通过修饰符自动转换成数字
+      },
+      add2: function () {
+        console.log(this.num2 + 13);  //1213,获取到的是字符串，只是进行拼接而已
+      },
+      //输入框输入‘123  ’
+      show1: function () {
+        console.log(this.str1 + '--');  //123--，通过trim修饰符去掉后面的空格
+      },
+      show2: function () {
+        console.log(this.str2 + '--');  //123  --，获取到带有空格的字符串，跟小尾巴之间带空格
+      },
+      showMsg() {
+        if (this.text.length > 8){
+          this.msg = '用户名称过长，请重新输入';
+          this.text = '';
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

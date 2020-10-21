@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .box {
+      display: flex;
+      /*flex-wrap: nowrap;*/
+      /*flex-direction: row-reverse;*/
+      /*flex-flow=flex-warp+flex-direction*/
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+    .son {
+      flex-grow: 1;
+      height: 100px;
+      margin: 20px;
+      background: lightblue;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="son"></div>
+  <div class="son"></div>
+  <div class="son"></div>
+  <div class="son"></div>
+  <div class="son"></div>
+</div>
+</body>
+</html>

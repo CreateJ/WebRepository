@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时器方法实例</title>
+    <style>
+        .box {
+            width: 300px;
+            text-align: center;
+            margin: 300px auto;
+            background-color: pink;
+        }
+        span {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span class="h">00</span>
+    <span class="fen">:</span>
+    <span class="m">00</span>
+    <span class="fen">:</span>
+    <span class="s">00</span>
+</div>
+<script>
+    // function fn() {
+    //     alert('Hello World!');
+    // }
+    // setTimeout三种使用方法
+    // 方法1：
+    // setTimeout(function () {
+    //     alert('Hello World!');
+    // },3000);
+    // 方法2：
+    // setTimeout(fn,3000);
+    // 方法3：
+    // setTimeout('fn()',3000);
+
+
+    // 制作倒计时效果
+    let hour  = document.querySelector('.h');
+    let min = document.querySelector('.m');
+    let sec = document.querySelector('.s');
+    let nowTime = new Date();  // 获取当前时间戳
+    let hour_text = 0;
+    let min_text = 0;
+    let sec_text = 0;
+    setInterval(function () {
+        hour_text = parseInt(nowTime.getHours());
+        hour.innerText = hour_text < 10 ? '0' + hour_text : hour_text;
+        min_text = parseInt(nowTime.getMinutes());
+        min.innerText = min_text < 10 ? '0' + min_text : min_text;
+        sec_text = parseInt(nowTime.getSeconds());
+        sec.innerText = sec_text < 10 ? '0' + sec_text : sec_text;
+        nowTime = new Date();
+    },1000);
+</script>
+</body>
+</html>

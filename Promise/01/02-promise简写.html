@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Jamie");
+        }, 1000);
+      })
+        .then((data) => {
+          // 正常写法
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(data.toLocaleLowerCase());
+            }, 1000);
+          });
+        })
+        .then((data) => {
+          console.log(data);
+          data += " Wang";
+          // 初级简写
+          return Promise.resolve(data + " Chi");
+        })
+        .then((data) => {
+          console.log(data);
+          // 超级简写
+          return data + " Jie";
+        })
+        .then(data => console.log(data));
+    </script>
+  </body>
+</html>

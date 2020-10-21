@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现京东按s自动定位搜索框功能</title>
+    <style>
+        .search {
+            display: block;
+            width: 200px;
+            height: 20px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+<input type="text" class="search">
+<script>
+    let search = document.querySelector('.search');
+    document.addEventListener('keyup',function (e) {
+        // console.log(e.keyCode);
+        if (e.keyCode === 83){
+            search.focus();     // 选中
+        }
+
+    })
+</script>
+</body>
+</html>

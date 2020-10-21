@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>006-图片预加载</title>
+  </head>
+  <body>
+    <img id="imgObj" src="https://a.axihe.com/assets/img/anbang-weixin.jpg" />
+    <script>
+      let imgObj = document.querySelector("#imgObj");
+      function addImg(tempSrc){
+        let imgObj1 = new Image();
+        imgObj1.src = tempSrc;
+        imgObj1.onload = function(){
+          imgObj.src = this.src;
+          imgObj.width = 50;
+          imgObj.height = 50;
+        }
+      }
+      addImg('https://images.pexels.com/photos/5561371/pexels-photo-5561371.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    </script>
+  </body>
+</html>

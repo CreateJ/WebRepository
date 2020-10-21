@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 思路：
+    // 1.找出所有特殊的双字母表示的字符串，记录到将其记录到数组中
+    // 2.计算出其他单字母的字符出现次数减去重复
+    // 1.将双字母替换成单字母比如IV=IIII;IX=IIIIIIIII;
+    // 2.计算所有单字母字符出现的次数并计算出结果
+    var romanToInt = function(s) {
+        let sum = 0;
+        s = s.replace("IV","IIII");
+        s = s.replace("XL","XXXX");
+        s = s.replace("CD","CCCC");
+        s = s.replace("V","IIIII");
+        s = s.replace("L","XXXXX");
+        s = s.replace("D","CCCCC");
+        s = s.replace("IX","IIIIIIIII");
+        s = s.replace("XC","XXXXXXXXX");
+        s = s.replace("CM","CCCCCCCCC");
+        let s_arr = s.split("");
+        for(let i = 0;i < s_arr.length;i++){
+            a = s_arr[i];
+            switch (a) {
+                case "I":
+                    sum += 1;
+                    break;
+                case "X":
+                    sum += 10;
+                    break;
+                case "C":
+                    sum += 100;
+                    break;
+                case "M":
+                    sum += 1000;
+                    break;
+                default:
+                    console.log("输入的罗马数字不正确");
+                    break;
+            }
+        }
+        return sum;
+    };
+    console.log(romanToInt("LVIII"));
+
+</script>
+</body>
+</html>

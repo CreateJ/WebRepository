@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图书管理实例</title>
+</head>
+<body>
+<div id="app">
+  <div>
+    <span>
+      <input type="text" v-model="fName">
+      <button @click="add">添加</button>
+      <button v-show="isChanging" @click="changed">修改</button>
+    </span>
+  </div>
+  <ul>
+    <li :key="index" v-for="(item,index) in list"><span>{{item}}</span>
+      <button @click="del(index)">删除</button>
+      <button @click="change(index)">修改</button>
+    </li>
+  </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      fName: '',
+      list: ['apple', 'orange', 'banana'],
+      isChanging: false,
+      changeIndex: 1,
+    },
+    methods: {
+      add: function () {
+        this.list.push(this.fName);
+      },
+      del: function (index) {
+        this.list.splice(index, 1);
+      },
+      change: function (index) {
+        this.isChanging = true;
+        this.changeIndex = index;
+      },
+      changed: function () {
+        this.list[this.changeIndex] = this.fName;
+        this.isChanging = false;
+      }
+    }
+  })
+</script>
+</body>
+</html>

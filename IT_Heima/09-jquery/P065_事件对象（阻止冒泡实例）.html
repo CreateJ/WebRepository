@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>阻止冒泡实例</title>
+  <style>
+    .parent {
+      width: 200px;
+      height: 200px;
+      background: pink;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+    }
+  </style>
+  <script src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<div class="parent">
+  <div class="son"></div>
+</div>
+<script>
+  $('.parent').on('click',function(){
+    console.log('父盒子');
+  })
+  $('.son').on('click',function(event){
+    console.log('子盒子');
+    // 阻止事件冒泡
+    event.stopPropagation();
+  })
+</script>
+</body>
+</html>

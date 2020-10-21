@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery类操作</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto 0 auto;
+            background-color: pink;
+        }
+        .current {
+            background-color: lightblue;
+        }
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<button id="add">add</button>
+<button id="delete">delete</button>
+<button id="reset">reset</button>
+<script>
+    $(function () {
+        $('#add').click(function () {
+            $('div').addClass('current');
+        });
+        $('#delete').click(function () {
+            $('div').removeClass('current');
+        });
+        $('#reset').click(function () {
+            $('div').toggleClass('current');
+        });
+    })
+</script>
+</body>
+</html>

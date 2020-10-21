@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.3.4：管理内存（释放无用对象）</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    function createPerson(name){
+        var localPerson = new Object();
+        localPerson.name = name;
+        return localPerson;
+    }
+
+    var globalPerson = createPerson("Jamie");
+
+    //手工解除globalPerson的引用
+
+    globalPerson.name = null;
+</script>
+
+</html>

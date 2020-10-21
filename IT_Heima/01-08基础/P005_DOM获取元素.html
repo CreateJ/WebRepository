@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="time">2020-5-25</div>
+<ul id="nav">
+    <li class="poe">杨花落尽子规啼</li>
+    <li class="poe">闻道龙标过五溪</li>
+    <li>我寄愁心与明月</li>
+    <li>随风直到夜郎西</li>
+</ul>
+
+<ul>
+    <li>abc</li>
+    <li>abc</li>
+    <li>abc</li>
+    <li>abc</li>
+</ul>
+</body>
+<script>
+
+    //1.getElementById()
+    var timer = document.getElementById('time');
+    console.log(timer);
+    console.dir(timer);
+    console.log('\n');
+    //2.getElementsByTagName()
+    var lis = document.getElementsByTagName('li');
+    console.log(lis);
+    for (var i = 0; i < lis.length; i++) {
+        console.log(lis[i]);
+    }
+    console.log('\n');
+    //3.element.getElementsByTagName()
+    var nav = document.getElementById('nav');
+    var lis2 = nav.getElementsByTagName('li');
+    for (var i = 0; i < lis2.length; i++) {
+        console.log(lis2[i]);
+    }
+    console.log('\n');
+
+    //4.H5新增通过class名获取dom对象
+    var poe = document.getElementsByClassName('poe');
+    console.log(poe[0]);
+    var firstPoe = document.querySelector('.poe');
+    console.log(firstPoe);
+    var nav2 = document.querySelector('#nav');
+    console.log(nav2);
+    var allPoe = document.querySelectorAll('li');
+    console.log(allPoe);
+    console.log('\n');
+
+    //5.获取body元素
+    var bodyEle = document.body;
+    console.log(bodyEle);
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-text和v-html</title>
+</head>
+<body>
+<div id="app">
+  <div>{{message}}你好帅！</div>
+  <div v-text="message">你好帅！</div>
+  <!--v-text不够灵活-->
+  <div v-html="url"></div>
+  <a href=""></a>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好二蛋！',
+      url: '<a href="#">你好二蛋！</a>'
+    },
+    methods: {
+
+    }
+  })
+</script>
+</body>
+</html>

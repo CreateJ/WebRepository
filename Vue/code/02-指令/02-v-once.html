@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-once</title>
+</head>
+<body>
+<div id="app">
+  <div>{{message}}</div>
+  <div v-once>{{message}}</div>
+  <!--  v-once的作用是让被修饰的标签内容
+  不会因为对象内容被修改而修改-->
+  <button v-on:click="click">修改</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: '修改前是阴天',
+    },
+    methods: {
+      click: function () {
+        this.message = '修改后是晴天';
+      },
+    }
+  })
+</script>
+</body>
+</html>

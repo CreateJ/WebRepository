@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>001-动态显示当前时间</title>
+    <style>
+      #clockNow {
+        text-align: center;
+        margin-top: 200px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clockNow">1</div>
+    <script>
+      function clock() {
+        let time = new Date();
+
+        let y = time.getFullYear(),
+          m = time.getMonth() + 1,
+          day = time.getDate(),
+          week = toWeek(time.getDay());
+
+        let h = time.getHours(),
+          min = time.getMinutes(),
+          s = time.getSeconds(),
+          ms = time.getMilliseconds();
+
+        var resultTime = ` 今天是${y}年${m}月${day}日${week}${h}时${min}分${s}秒${ms}毫秒 `;
+        return resultTime;
+      }
+      function toWeek(week){
+        let resultWeek = "";
+        switch(week){
+          case 0:
+            resultWeek = "日";
+          case 1:
+            resultWeek = "一";
+          case 2:
+            resultWeek = "二";
+          case 3:
+            resultWeek = "三";
+          case 4:
+            resultWeek = "四";
+          case 5:
+            resultWeek = "五";
+          case 6:
+            resultWeek = "六";
+        }
+        return "星期"+ resultWeek;
+      }
+      var clockNow = document.querySelector("#clockNow");
+      clockNow.innerHTML = clock();
+      setInterval(() => {
+        clockNow.innerHTML = clock();
+      }, 1000);
+    </script>
+  </body>
+</html>

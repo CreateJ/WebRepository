@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GDUFE-STUDY-COMMUNITY</title>
+  <link rel="stylesheet" href="css/bootstrap3.css">
+  <link rel="stylesheet" href="css/global.css">
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/bootstrap3.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/global.js"></script>
+</head>
+<body>
+<div class="all-container relative" id="app">
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img id="logo-img" src="img/logo4.png" alt=""></a>
+            <a id="websit-name" class="navbar-brand" href="#">STUDY</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--左侧的链接-->
+            <ul class="nav navbar-nav">
+              <li><a href="#">首页</a></li>
+              <li><a href="#">消息</a></li>
+            </ul>
+            <!--最右侧的注册与登录按钮-->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">注册</a></li>
+              <li><a href="#">登录</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <div class="form-group relative">
+                <img class="absolute" id="navbar-form-img" src="img/search.png" alt="">
+                <input type="text" class="form-control" placeholder="快来挖掘宝藏吧！">
+              </div>
+              <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
+  </header>
+  <div class="title-container">
+    <div class="container">
+      <h2 class="title">欢迎来到广财学习交流社区</h2>
+      <div class="subTitle"></div>
+    </div>
+  </div>
+  <footer class="absolute">
+    <div class="container">
+      <p class="foot-p">COPYRIGHT © 2020 Alan & Jamie</p>
+      <p class="foot-p">全站点击次数:<span>{{allClickTimes}}</span>次</p>
+      <p class="foot-p">本站已运行:<span>{{time}}</span></p>
+    </div>
+  </footer>
+</div>
+</body>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      allClickTimes: 9999,
+      time: 'xx天x时x分x秒',
+    },
+    method: {
+
+    }
+  })
+</script>
+</html>

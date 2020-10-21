@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 子组件模板内容 -->
+    <template id="tags">
+      <div>
+        <!-- 设置子组件的点击事件 -->
+        <button :key="item.id" v-for="item in tags_list" @click="btnClick(item)">{{item.name}}</button>
+      </div>
+    </template>
+ 
+
+    <div id="app">
+      <!-- 这里用来显示接收到的信息 -->
+      <h1>{{message}}</h1>
+      <!-- 引用模板，注册监听事件，与子组件的点击事件中传回的第一个参数同名，接收默认自带子组件传递过来的数据，这里cpnClick括号内不写，下方监听函数也可以直接使用item参数 -->
+      <tags @item-click="cpmClick"></tags>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+      Vue.component("tags", {
+        template: "#tags",
+        data: function () {
+          return {
+            tags_list: [
+              { id: "aaa", name: "热门推荐" },
+              { id: "bbb", name: "男生上衣" },
+              { id: "ccc", name: "男生裤子" },
+              { id: "ddd", name: "女生上衣" },
+              { id: "eee", name: "女生裤子" },
+            ],
+          };
+        },
+        methods: {
+          btnClick: function(item){
+            // 设置子组件的点击事件，传回的数据名称以及数据
+            this.$emit('item-click',item);
+          }
+        }
+      });
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "",
+        },
+        methods: {
+          cpmClick: function(item){
+            this.message = item;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

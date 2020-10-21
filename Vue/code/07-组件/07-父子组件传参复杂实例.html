@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>这个是dNum1：{{dNum1}}</div>
+    <div>这个是dNum2：{{dNum2}}</div>
+    <hr>
+    <cpn :p-num1="dNum1" :p-num2="dNum2" @update-num1="updateNum1" @update-num2="updateNum2"></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <div>这个是cNum1：{{cNum1}}</div>
+      <div>这个是pNum1：{{pNum1}}</div>
+      这个是cNum1:<input type="text" v-model="cNum1" @input.lazy="pushNum1">
+      <hr>
+      <div>这个是cNum2：{{cNum2}}</div>
+      <div>这个是pNum2：{{pNum2}}</div>
+      这个是cNum2:<input type="text" v-model="cNum2" @input.lazy="pushNum2">
+    </div>
+  </template>
+  <script src="../../js/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        dNum1: 1,
+        dNum2: 2,
+      },
+      methods: {
+        updateNum1: function(val){
+          this.dNum1 = val; 
+          this.dNum2 = val * 100;
+        },
+        updateNum2: function(val){
+          this.dNum1 = val / 100; 
+          this.dNum2 = val; 
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props:{
+            pNum1: Number,
+            pNum2: Number,
+          },
+          data: function(){
+            return {
+              cNum1: this.pNum1,
+              cNum2: this.pNum2,
+            }
+          },
+          methods: {
+            pushNum1(event){
+              num = parseFloat(event.target.value);
+              this.cNum2 = num *100;
+              this.$emit('update-num1',num);
+              this.$emit('update-num2',this.cNum2);
+              // console.log(event.target.value);
+            },
+            pushNum2(event){
+              num = parseFloat(event.target.value);
+              this.cNum1 = num *0.01;
+              this.$emit('update-num1',this.cNum1);
+              this.$emit('update-num2',num);
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

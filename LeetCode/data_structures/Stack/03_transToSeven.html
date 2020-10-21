@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 100;
+    var arr = [];
+    while(a != 0){
+        arr.push(a % 7);
+        a = Math.floor(a / 7);
+    }
+    var resultStr = '';
+    for(var i = arr.length-1; i >= 0 ; i--){
+        resultStr += arr[i]+'';
+    }
+    console.log(resultStr);
+</script>
+</body>
+</html>

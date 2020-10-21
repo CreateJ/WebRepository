@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js动画入门</title>
+    <style>
+        .box {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+</div>
+<script>
+    let box = document.querySelector('.box');
+    let t = 0;
+    let timer = setInterval(function () {
+        if (box.offsetLeft > 200){
+            clearInterval(timer);
+        }
+        console.log(box.offsetLeft);
+        box.style.left = box.offsetLeft + 10 + 'px';
+        t ++ ;
+        box.style.top = 0.5 * 9.8 * t * t + 'px';
+    },100)
+</script>
+</body>
+</html>

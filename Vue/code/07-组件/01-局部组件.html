@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="../../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <cpm :key="index" v-for="(item,index) in id" :id="index"></cpm>
+    </div>
+    <script>
+      const cpmc = Vue.extend({
+            props: ["id"],
+            data: function () {
+              return {};
+            },
+            template: `
+              <div>
+                <h2>这个是组件{{id+1}}号</h2>
+                <p>红红火火恍恍惚惚</p>
+              </div>
+              `,
+          }
+      );
+
+
+
+      let vue = new Vue({
+        el: "#app",
+        data: {
+          message: 1,
+          id: [{ id: 0 }, { id: 1 }, { id: 3 }, { id: 4 }, { id: 5 }],
+        },
+        methods: {},
+        components: {
+          'cpm': cpmc,
+        },
+      });
+    </script>
+  </body>
+</html>

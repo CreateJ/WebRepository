@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: pink;
+            margin: 200px auto;
+        }
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 200px;
+        }
+        .mask:hover {
+            background: rgba(0,0,0,.3) url(../../image/P024_play.png) no-repeat center center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <div class="mask"></div>
+    <div class="container"></div>
+</div>
+</body>
+</html>

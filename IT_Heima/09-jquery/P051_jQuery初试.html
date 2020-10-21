@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery初试</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+        $('div').hide();
+    });
+
+    $(function () {
+        $('div').show();
+    })
+</script>
+<div></div>
+
+</body>
+</html>

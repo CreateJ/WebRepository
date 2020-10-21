@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-if & v-else-if & v-else</title>
+</head>
+<body>
+<div id="app">
+  <div v-if="msg>90">优秀</div>
+  <div v-else-if="msg<=90&&msg>80">良好</div>
+  <div v-else-if="msg<=80&&msg>70">及格</div>
+  <div v-else="msg<=70">不及格</div>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      msg: 88,
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>

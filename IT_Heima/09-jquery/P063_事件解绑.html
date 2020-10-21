@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.5.1.js"></script>
+  <style>
+    .pre{
+      width: 30px;
+      height: 10px;
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <div class="pre"></div>
+  <ul>
+    <li>good boy</li>
+    <li>good boy</li>
+    <li>good boy</li>
+  </ul>
+</div>
+<script>
+  $('.pre').on('click', function () {
+    alert('点击了');
+  });
+  $('ul').on('click','li',function (){
+    alert('dianjile');
+  })
+  $('.pre').off();
+  $('ul').off('click','li');
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>计算Euler-φ函数</title>
+    <style type="text/css">
+        #result > p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h3>p=19,q=23,对N=p*q计算N的φ值</h3>
+<hr style="height:1px;border:none;border-top:3px solid #00FF7F;"/>
+<h3>输出与N(=p*q)互素的全部整数</h3>
+<hr style="height:1px;border:none;border-top:3px solid #00FF7F;"/>
+<div id="result">
+    <h3>显示φ(N)</h3>
+    <p>区间中符合条件的数有（输出格式：20/line）:</p>
+</div>
+<script type="text/javascript">
+    const p = 19,
+        q = 23;
+    const N = p * q;
+
+    function gcd(a, b) {
+        while (b !== 0) {
+            let c = a % b;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
+
+    function f1(N) {
+        var result = [];
+        for (var i = 1; i < N; i++) {
+            if (gcd(N, i) == 1) {
+                result.push(i);
+            }
+        }
+        return result;
+    }
+
+    var num = 0;
+    var str = "";
+    const result = f1(N);
+
+    let $div = document.querySelector("#result");
+    console.log(result);
+    result.forEach((item) => {
+        num++;
+        if (num <= 20) {
+            str += item + " ";
+        } else {
+            let $p = document.createElement("p");
+            let $node = document.createTextNode(str);
+            $p.appendChild($node);
+            $div.appendChild($p);
+            str = "";
+            num = 0;
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            position: absolute;
+            top: 50px;
+            width: 70px;
+            height:70px;
+            background-color: lightblue;
+            text-align: center;
+            padding: 30px 15px 0px 15px;
+        }
+    </style>
+</head>
+<body>
+<text>移动距离:</text>
+<button class="btn000">000</button>
+<button class="btn400">400</button>
+<button class="btn800">800</button>
+<div class="box">跑来跑去</br>的方块</div>
+<script>
+
+    let animate = function (obj,target,callback) {
+        clearInterval(obj.timer);               // 重置一下计时器
+        obj.timer = setInterval(function(){
+            var step = (target - obj.offsetLeft)/10;
+            if(step > 0){                       // 根据step向上或向下取整
+                step = Math.ceil(step);
+            }else{
+                step = Math.floor(step);
+            }
+            if (obj.offsetLeft == target){
+                clearInterval(obj.timer);
+                if(callback){                   // 回调函数：在原来的函数执行完之后执行的函数
+                    callback();                 // 正常情况下是将其他函数当作参数写入
+                }                               // 而后调用
+            }
+            console.log(obj.offsetLeft + ' 1 ' + step);
+            obj.style.left = (obj.offsetLeft + step) + 'px';
+            console.log(obj.offsetLeft + ' 2 ' + step);
+        },1000/60);
+    };
+
+    let btn_000 = document.querySelector('.btn000');
+    let btn_400 = document.querySelector('.btn400');
+    let btn_800 = document.querySelector('.btn800');
+    let box = document.querySelector('.box');
+    btn_000.addEventListener('click',function () {
+        animate(box,0);
+    });
+    btn_400.addEventListener('click',function () {
+        animate(box,400);
+    });
+    btn_800.addEventListener('click',function () {
+        animate(box,800,function () {
+            box.style.backgroundColor = 'pink';
+        });
+    });
+</script>
+</body>
+</html>

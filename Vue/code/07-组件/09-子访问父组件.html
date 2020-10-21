@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <!-- 注意这里不可以使用驼峰命名法 -->
+      <child-cpn></child-cpn>
+    </div>
+    <template id="child">
+      <div>
+        <h2 style="color: red">儿子组件</h2>
+        <child-child-cpn></child-child-cpn>
+      </div>
+    </template>
+    <template id="child-child">
+      <div>
+        <h2 style="color: blue">孙子组件</h2>
+        <button @click="handle">点击获取父组件message</button>
+      </div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "父亲组件",
+        },
+        methods: {},
+        components: {
+          childCpn: {
+            template: "#child",
+            data: function(){
+              return {
+                message: '儿子组件'
+              }
+            },
+            components: { 
+              childChildCpn: {
+                template: "#child-child",
+                methods: {
+                  handle: function () {
+                    console.log('上一级组件：'+this.$parent.message);
+                    console.log('最上级组件：'+this.$root.message);
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

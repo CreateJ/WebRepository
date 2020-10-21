@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+    </ol>
+</div>
+<script>
+    let div = document.querySelector(".box");
+    let ol = document.querySelector("ol");
+    console.log(ol);
+    let firstLi = ol.firstElementChild;
+    console.log(firstLi);
+    let secondLi = ol.children[1];
+    console.log(secondLi);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.1：Object类型</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    //所有对象都用object创建
+    var person = new Object();
+
+    //方法一
+    var person1 = new Object();
+    person1.name = "Jamie";
+    person1.age = 21;
+    alert('person1:\nname:'+person1.name+'\nage:'+person1.age);
+
+    //方法二
+    var person2 = {
+        name : 'Jamie',
+        age : 21
+        //最后一个属性后面不可以加逗号(,)原因是会导致IE7之前的版本报错
+    }
+    alert('person2:\nname:'+person2.name+'\nage:'+person2.age);
+
+    //Points
+    //5.1.1：属性名可以为数字
+    var person3 = {
+        name : 'Jamie',
+        age : 21,
+        5 : true
+        //最后一个属性后面不可以加逗号(,)原因是会导致IE7之前的版本报错
+    }
+    alert('person3:\n5:'+person3["5"])
+
+
+</script>
+</html>

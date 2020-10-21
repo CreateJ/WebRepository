@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T0844:比较含退格的字符串</title>
+  </head>
+  <body>
+    <script>
+      var backspaceCompare = function (S, T) {
+        function back(array) {
+          if (array.length >= 1) {
+            array.pop();
+          } else {
+            array = [];
+          }
+        }
+        function comp(s) {
+          let s_arr = s.split("");
+          let s_res = [];
+          for (let i = 0; i < s_arr.length; i++) {
+            if (s_arr[i] != "#") {
+              s_res.push(s_arr[i]);
+            } else {
+              back(s_res);
+            }
+          }
+          let s_str = "";
+          for(let i = 0; i<s_res.length;i++){
+            s_str += s_res[i];
+          }
+          return s_str;
+        }
+        if(comp(S)===comp(T)){
+          return true;
+        }else{
+          return false;
+        }    
+      };
+      console.log(backspaceCompare("a#c", "b"));
+    </script>
+  </body>
+</html>

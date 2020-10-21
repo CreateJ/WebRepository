@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单手风琴实现</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: pink;
+        }
+        li>div{
+            color: #11999e;
+            font-weight: bolder;
+            font-size: 40px;
+            line-height: 60px;
+
+        }
+        ul {
+            width: 620px;
+            height: 60px;
+            margin: 200px auto;
+        }
+        li {
+            float: left;
+            width: 60px;
+            height: 60px;
+        }
+        .big {
+            display: none;
+            height: 60px;
+            width: 200px;
+            text-align: center;
+        }
+        .small {
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            text-align: center;
+        }
+        .odd .big {
+            background-color: #cbf1f5;
+        }
+        .odd .small{
+            background-color: #e3fdfd;
+        }
+        .even .big {
+            background-color: #a6e3e9;
+        }
+        .even .small{
+            background-color: #71c9ce;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="odd">
+        <div class="big odd">这个是1</div>
+        <div class="small odd">1</div>
+    </li>
+    <li class="even">
+        <div class="big odd">这个是2</div>
+        <div class="small odd">2</div>
+    </li>
+    <li class="odd">
+        <div class="big odd">这个是3</div>
+        <div class="small odd">3</div>
+    </li>
+    <li class="even">
+        <div class="big odd">这个是4</div>
+        <div class="small odd">4</div>
+    </li>
+    <li class="odd">
+        <div class="big odd">这个是5</div>
+        <div class="small odd">5</div>
+    </li>
+    <li class="even">
+        <div class="big odd">这个是6</div>
+        <div class="small odd">6</div>
+    </li>
+    <li class="odd">
+        <div class="big odd">这个是7</div>
+        <div class="small odd">7</div>
+    </li>
+    <li class="even">
+        <div class="big odd">这个是8</div>
+        <div class="small odd">8</div>
+    </li>
+</ul>
+<script>
+$(function () {
+    $('li').eq(0).css('width','200px');
+    $('li').eq(0).children('.big').show();
+    $('li').eq(0).children('.small').hide();
+
+    $('li').mouseover(function () {
+        // 将其他兄弟的宽度全部恢复成60px
+        $(this).siblings('li').stop().animate({'width':'60px',},500);
+        // 将自己的宽度变成200px
+        $(this).stop().animate({'width':'200px',},500);
+        // 将自己的子节点big淡入，small淡出
+        $(this).children('.big').stop().fadeIn('fast').siblings('.small').stop().fadeOut('fast');
+        // 将其他兄弟的子节点big淡，small淡入
+        $(this).siblings('li').children('.big').stop().fadeOut('fast').siblings('.small').stop().fadeIn('fast');
+    })
+})
+</script>
+</body>
+</html>

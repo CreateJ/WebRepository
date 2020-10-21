@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="structural.js"></script>
+</head>
+<body>
+<script>
+    let s = new Stack();
+
+    let num = 100;
+    while(num != 0){
+        console.log(num);
+        s.push(num%2);
+        num = Math.floor(num/2);
+    }
+    alert(s.transToBin());
+</script>
+</body>
+</html>

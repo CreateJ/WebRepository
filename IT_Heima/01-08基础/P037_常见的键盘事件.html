@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见键盘事件</title>
+</head>
+<body>
+<script>
+    // tips:三个事件的执行顺序，keydown -> keypress -> keyup
+    // tips:keypress识别大小写但不识别功能键，keydown和keyup不识别
+    // 1. 某个按键弹起后触发
+    document.addEventListener('keyup', function (e) {
+        console.log('我弹起了');
+        // 显示按下按键所对应的ascii码
+        console.log(e.keyCode);
+    });
+    // 2. 某个按键按下的时候不断触发
+    document.addEventListener('keydown',function (e) {
+        console.log('我按下了down');
+
+
+    });
+    // 3. 某个按键按下的时候不断触发
+    document.addEventListener('keypress',function (e) {
+        console.log('我按下了press');
+    })
+
+
+
+</script>
+</body>
+</html>

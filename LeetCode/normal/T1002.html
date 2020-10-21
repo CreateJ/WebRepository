@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>力扣1002:查找常用字符串</title>
+  </head>
+  <body>
+    <script>
+      // 给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。
+
+      // 你可以按任意顺序返回答案。
+      let Array = ["bella", "label", "roller"];
+      /**
+       * @param {string[]} A
+       * @return {string[]}
+       */
+      let commonChars = function (A) {
+        function AddOne(obj, index) {
+          obj[index] == null ? (obj[index] = 1) : obj[index]++;
+        }
+
+        first_str = A[0].split("");
+        first_obj = {};
+
+        for (let i in first_str) {
+          AddOne(first_obj, first_str[i]);
+        }
+        for (let i = 1; i < A.length; i++) {
+          let new_obj = {};
+          for (let j = 0; j < A[i].length; j++) {
+            AddOne(new_obj, A[i][j]);
+          }
+          for (let i in first_obj) {
+            if (new_obj[i] == null) {
+              first_obj[i] = null;
+            }
+            if (first_obj[i] >= new_obj[i]) {
+              first_obj[i] = new_obj[i];
+            }
+          }
+        }
+        let result = [];
+        for (let i in first_obj) {
+          if (first_obj[i] != null) {
+            for (let j = 0; j < first_obj[i]; j++) {
+              result.push(i);
+            }
+          }
+        }
+        return result;
+      };
+      commonChars(Array);
+    </script>
+  </body>
+</html>

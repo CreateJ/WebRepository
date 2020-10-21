@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+    </div>
+    <!-- 下面全局组件会找到id为cpn的script标签，
+  将里面的内容作为模板渲染到整个dom中 -->
+    <!-- <script type="text/x-template" id="cpn">
+      <h2>这个是写在script里面的模板</h2>
+    </script> -->
+    <!-- 下面全局组件会找到id为cpn的template标签，
+  将里面的内容作为模板渲染到整个dom中 -->
+    <template id="cpn">
+      <h2>这个是写在template标签里面的模板</h2>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+      Vue.component("cpn", {
+        template: "#cpn",
+      });
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "",
+        },
+      });
+    </script>
+  </body>
+</html>

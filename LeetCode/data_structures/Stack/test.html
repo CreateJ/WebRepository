@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var nums1 = [1,2,2,1];
+    var nums2 = [2,2];
+    var dic1 = new Array();
+    var dic2 = new Array();
+    for(var a in nums1){
+        var s = nums1[a]+'';
+        if (dic1[s] == undefined){
+            dic1[s] = '1';
+        }else{
+            dic1[s] = (parseInt(dic1[s])+1)+'';
+        }
+    }
+    for(var b in nums2){
+        var s = nums2[b]+'';
+        if (dic2[s] == undefined){
+            dic2[s] = '1';
+        }else{
+            dic2[s] = (parseInt(dic2[s])+1)+'';
+        }
+    }
+
+    var resArr=[];
+    for(var key2 in dic2){
+        if(dic1[key2] != undefined){
+            if(parseInt(dic1[key2]) >= parseInt(dic2[key2])){
+                for(var i = 0; i < parseInt(dic2[key2]);i++){
+                    resArr.push(parseInt(key2));
+                }
+            }else{
+                for(var i = 0; i < parseInt(dic1[key2]);i++){
+                    resArr.push(parseInt(key2));
+                }
+            }
+        }
+    }
+    console.log(resArr);
+</script>
+</body>
+</html>

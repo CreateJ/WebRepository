@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+<body>
+  <script>
+    // 完整写法
+    const fn_all = (num1, num2) => {
+      return num1 * num2
+    }
+    console.log(fn_all(20,30));
+
+    //只有一个参数，可以去掉参数的小括号
+    const fn_one_parm = num => {
+      return num * num
+    }
+    console.log(fn_one_parm(30));
+
+    //该函数内部只有一行代码，去掉大括号
+    const fn_one_line = (num1, num2) => num1 * num2
+    console.log(fn_one_line(30,40));
+
+    //极简
+    const fn = num => num * num;
+    console.log(fn(20));
+  </script>
+</body>
+</html>

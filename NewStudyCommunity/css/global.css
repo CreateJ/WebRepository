@@ -1,0 +1,149 @@
+:root {
+  --page-background-color: #eee;
+  --nav-orange: #f38761;
+  --nav-font-color: #eee;
+  --footer-font-color0: #eee;
+  --footer-font-color1: #0f7597;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: arial, STHeiti, 'Microsoft YaHei', \5b8b\4f53;
+  font-size: 14px;
+  height: 100%;
+}
+
+.all-container {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+
+.container {
+  height: auto;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+/*navbar-start*/
+header {
+  height: 50px;
+  background-color: #80D0C7;
+  background-image: linear-gradient(45deg, #80D0C7 0%, #0093E9 100%);
+}
+
+/*后期加渐变效果的地方*/
+/*header .container-fluid {*/
+/*  background: #f38761;*/
+/*}*/
+#logo-img {
+  height: 30px;
+  margin: -5px 0 0 0;
+}
+
+#websit-name {
+  color: var(--nav-font-color);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: var(--nav-font-color);
+}
+.navbar-default .navbar-nav > li > a:hover{
+  color: var(--nav-font-color);
+}
+.navbar-default .navbar-nav > li > a:focus {
+  color: var(--nav-font-color);
+}
+
+.navbar-default .btn-default {
+  color: var(--nav-font-color);
+}
+
+.navbar-default {
+  background: transparent;
+  border: transparent;
+}
+
+.navbar-default .form-control {
+  width: 300px;
+  background: #5bb0dc;
+  border: none;
+  margin-right: 5px;
+  padding-left: 32px;
+  color: var(--nav-font-color);
+
+}
+
+.navbar-default ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: var(--nav-font-color);
+}
+
+.navbar-default .btn-default {
+  background: #4170a7;
+  height: 34px;
+  border: none;
+}
+
+.navbar-default li:hover {
+  background: rgba(255,255,255,0.2);
+}
+.navbar-default li:focus {
+  background: #afcffa;
+}
+#navbar-form-img {
+  height: 22px;
+  left: 7px;
+  top: 7px;
+}
+/*navbar-end*/
+
+/*title-start*/
+.title-container {
+  background: pink;
+  width: 100%;
+  height: auto;
+}
+.title-container .container{
+  height: auto;
+  /*background: var(--page-background-color);*/
+  background: pink;
+  text-align: center;
+}
+.title-container .title {
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+/*title-start*/
+
+
+/*footer-star*/
+footer {
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  background-color: #80D0C7;
+  background-image: linear-gradient(45deg, #80D0C7 0%, #0093E9 100%);
+}
+footer .container {
+  text-align: center;
+  padding: 10px;
+}
+footer p {
+  color: var(--footer-font-color0);
+}
+footer p span{
+  color: var(--footer-font-color1);
+  font-weight: bolder;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/*footer-end*/

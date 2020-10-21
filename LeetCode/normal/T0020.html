@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>括号配对检测</title>
+</head>
+<body>
+<script>
+    // 思路：
+    // 1.如果栈为空，且原字符串不为空，将原字符串最后一个字符压入栈中，原字符串长度-1
+    // 2.如果栈不为空，原字符串不为空，将字符串最后一个字符取出，找到对应的字典值，
+    //     看其是否为负数，为正则与栈顶元素的字典值相加，为0弹出栈顶元素，不为零则将
+    //     最后那个字符压入栈中，为负也压入栈中。
+    // 3.循环结束后，若栈顶不为空，则该括号匹配不正确。
+    var isValid = function(s) {
+        let obj = {
+            "{":1,
+            "}":-1,
+            "[":2,
+            "]":-2,
+            "(":3,
+            ")":-3,
+        }
+        let stack = [];
+
+        for(var i = s.length-1 ; i >= 0;i--){
+            if(obj[s[i]] < 0){
+                stack.push(s[i]);
+            }else{
+                if(obj[stack[stack.length-1]] + obj[s[i]] == 0){
+                    stack.pop();
+                }else{
+                    stack.push(s[i]);
+                }
+            }
+        }
+        if (stack.length == 0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    var a = "{[]}()";
+    console.log(isValid(a));
+</script>
+</body>
+</html>

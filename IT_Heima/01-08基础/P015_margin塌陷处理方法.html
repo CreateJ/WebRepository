@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin塌陷处理方法</title>
+    <style>
+        .father{
+            /*貌似不太推荐，等以后遇到了再找解决方案*/
+            border-top: 1px solid transparent;
+            height: 500px;
+            width: 500px;
+            background-color: pink;
+        }
+        .son{
+            height: 200px;
+            width: 200px;
+            background-color: lightblue;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+</body>
+</html>

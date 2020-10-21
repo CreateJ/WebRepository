@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码输入检测实例.</title>
+    <style>
+        .box{
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .box input{
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+        .box img{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <label for="">
+        <img id="eye" src="../../image/eye_close.png" alt="">
+    </label>
+    <input id="pwd" type="password" name="" id="">
+</div>
+<script>
+    //获取元素
+    var eye = document.getElementById('eye');
+    var pwd = document.getElementById('pwd');
+
+    //初始化false，代表处于密文状态
+    var flag = false;
+
+    //绑定事件
+    eye.onclick = function () {
+        if (flag){
+            //切换输入框的类型，转为明文
+            pwd.type = 'password';
+            eye.src = '../image/eye_close.png';
+            flag = false;
+        }else {
+            //切换输入框的类型，转为密文
+            pwd.type = 'text';
+            eye.src = '../image/eye_open.png';
+            flag = true;
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自动触发事件</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+    }
+  </style>
+  <script src="../js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<div></div>
+<script>
+  $('div').on('click',function (){
+    alert('点击了');
+  })
+
+  // $('div').click();
+  // $('div').trigger('click');
+  $('div').triggerHandler('click');
+</script>
+</body>
+</html>

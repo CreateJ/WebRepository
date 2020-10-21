@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-列表初体验</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['星际穿越','盗梦空间','流浪地球']
+        }
+    })
+</script>
+</body>
+</html>

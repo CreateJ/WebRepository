@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>力扣0066:加一</title>
+  </head>
+  <body>
+    <script>
+      var plusOne = function (digits) {
+        let res = [];
+        let n = digits.length;
+        res[0] = 0;
+        for (let i = 1; i <= n; i++) res.push(digits[i - 1]);
+        let isPlus = true;
+        for (let i = n; i >= 0; i--) {
+          if (isPlus) {
+            res[i]++;
+          }
+          if (res[i] === 10) {
+            res[i] = 0;
+            isPlus = true;
+          } else {
+            isPlus = false;
+          }
+        }
+        if(res[0] === 0 ){
+          res.shift()
+        }
+        return res;
+      };
+      console.log(plusOne([9, 9, 9]));
+    </script>
+  </body>
+</html>

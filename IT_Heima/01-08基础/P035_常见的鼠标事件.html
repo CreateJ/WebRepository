@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见鼠标事件</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // mouseEvent
+    document.addEventListener('click',function (e) {
+        // 1.鼠标相对于可见窗口的坐标
+        console.log('鼠标相对于可见窗口的坐标：'+ e.clientX + ' ' + e.clientY);
+        // 2.鼠标相对于整个页面的坐标
+        console.log('鼠标相对于整个页面的窗口的坐标：'+ e.pageX + ' ' + e.pageY);
+        // 3.鼠标相对于整个屏幕的坐标
+        console.log('鼠标相对于整个屏幕的坐标：' + e.screenX + ' '+ e.screenY);
+    })
+</script>
+</body>
+</html>

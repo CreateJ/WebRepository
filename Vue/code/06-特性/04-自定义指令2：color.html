@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自定义指令color</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="box" v-color="color"></div>
+  <input type="text" v-model.lazy="colorName" @change="handle">
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      color: {color: 'lightblue'},
+      colorName: '',
+    },
+    methods: {
+      handle: function () {
+        this.color.color = this.colorName;
+      }
+    },
+    directives: {
+      color: {
+        // binding为一个专用的对象，包含value，也就是双引号里面的内容
+        update: function (el, binding) {
+          el.style.backgroundColor = binding.value.color;
+`       }
+      }
+    }
+  })
+</script>
+</body>
+</html>

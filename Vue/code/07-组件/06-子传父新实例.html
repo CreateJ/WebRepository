@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{counter}}</h2>
+      <increment @increment-click="incBtnClick"></increment>
+      <decrement @decrement-click="decBtnClick"></decrement>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          counter: 0,
+        },
+        methods: {
+          incBtnClick: function (data) {
+            this.counter += data;
+          },
+          decBtnClick: function (data) {
+            this.counter += data;
+          },
+        },
+        components: {
+          increment: {
+            data: function () {
+              return {
+                inc: 1,
+              };
+            },
+            template: `
+            <button @click="incHandler">increament</button>
+          `,
+            methods: {
+              incHandler: function () {
+                this.$emit("increment-click", this.inc);
+              },
+            },
+          },
+          decrement: {
+            data: function () {
+              return {
+                dec: -1,
+              };
+            },
+            template: `
+            <button @click="decHandler">decrement</button>
+            `,
+            methods: {
+              decHandler: function () {
+                this.$emit("decrement-click", this.dec);
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

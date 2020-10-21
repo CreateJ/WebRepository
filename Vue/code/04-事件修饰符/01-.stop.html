@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>.stop</title>
+</head>
+<body>
+<div id="app" @click="handleFather">
+  <button @click.stop="handle">click</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    methods: {
+      handleFather: function (){
+        alert('I am father!')
+      },
+      // 当直接调用函数名作为指令的时候，事件对象会
+      // 作为第一个参数传进来，（有参数传入则为最后一个）
+      handle: function (event){
+        // 这里也有同样的作用
+        // event.stopPropagation();
+        alert('I am son!');
+      }
+    }
+  })
+</script>
+</body>
+</html>

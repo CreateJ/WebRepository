@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最长公共前缀</title>
+</head>
+<body>
+<script>
+    var longestCommonPrefix = function (str) {
+        if (str.length == 0){return "";}
+        if (str[0] == ""){return "";}
+        if (str.length == 1){return str[0];}
+        let isBreak = false;
+        let result = "";
+        let shortest = "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111";
+        for (let j = 0; j < str.length; j++){
+            if(shortest.length > str[j].length){
+                shortest = str[j];
+            }
+        }
+        console.log(shortest);
+        var index = 0;
+        var temp = "";
+        while(!isBreak){
+            temp = shortest[index];
+            for(let i = 0; i < str.length;i++){
+                if(temp != str[i][index]){
+                    isBreak = true;
+                    break;
+                }
+            }
+            if(!isBreak){
+                result += temp;
+                index += 1;
+            }
+            if(shortest.length == result.length){break;}
+        }
+        return result;
+    }
+    str_tmp = ["flower","flow","flight"];
+    console.log(longestCommonPrefix(str_tmp));
+
+</script>
+</body>
+</html>

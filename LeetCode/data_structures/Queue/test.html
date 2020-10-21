@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Queue test</title>
+    <script src="structural.js"></script>
+  </head>
+  <body>
+    <script>
+      let queue = new Queue();
+      queue.enQueue(1);
+      queue.enQueue(2);
+      queue.enQueue(3);
+      queue.enQueue(4);
+      console.log(queue.front());
+      console.log(queue.toString());
+      queue.deQueue();
+      queue.deQueue();
+      console.log(queue.front());
+      console.log(queue.toString());
+    </script>
+  </body>
+</html>

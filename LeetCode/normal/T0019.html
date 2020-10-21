@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>力扣0019:删除链表倒数第N个节点</title>
+  </head>
+  <body>
+    <script>
+      // 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+
+      /**
+       * Definition for singly-linked list.
+       * function ListNode(val, next) {
+       *     this.val = (val===undefined ? 0 : val)
+       *     this.next = (next===undefined ? null : next)
+       * }
+       */
+      /**
+       * @param {ListNode} head
+       * @param {number} n
+       * @return {ListNode}
+       */
+      var removeNthFromEnd = function (head, n) {
+        let p1 = head;
+        let p2 = head;
+        if (head.next == null) {
+          return head.next;
+        }
+        for (let i = 1; i < n; i++) {
+          p2 = p2.next;
+        }
+        if (!p2.next) {
+          return head.next;
+        }
+        p2 = p2.next;
+        while (p2 && p2.next) {
+          p1 = p1.next;
+          p2 = p2.next;
+        }
+        p1.next = p1.next.next;
+        return head;
+      };
+    </script>
+  </body>
+</html>

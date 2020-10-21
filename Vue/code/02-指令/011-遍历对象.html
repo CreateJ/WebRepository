@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>遍历对象</title>
+</head>
+<body>
+<div id="app">
+  <div v-if='item === 22' v-for="(item,key,index) in obj">{{(index + 1) + '---' + key + ': ' + item }}</div>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      obj: {
+        name: 'Jamie',
+        gender: 'male',
+        age: 22
+      }
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .setup-btn {
+            margin-right: 100px;
+            margin-left: 20px;
+        }
+
+        .container {
+            margin: 20px;
+            width: 500px;
+            height: 400px;
+            /*background-color: pink;*/
+            border: 2px #000000;
+        }
+
+        .container-login {
+            display: block;
+        }
+
+        .container-setup {
+            display: none;
+        }
+
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<button class="setup-btn">新用户注册</button>
+<button class="login-btn">登陆</button>
+<div class="container-login container">
+    <form action="" method="post" onsubmit="return check1(this);">
+        <fieldset style="width:300px;">
+            <legend>用户登录</legend>
+            用户名:<input type="text" name="username" value="">
+            <br>
+            密码: <input type="password" name="password" value="">
+            <br>
+            <input type="submit" value="提交">
+            <input type="reset" value="Reset">
+        </fieldset>
+    </form>
+</div>
+<div class="container-setup container">
+    <form action="" method="post" onsubmit="return check2(this);">
+        <fieldset style="width:300px;">
+            <legend>用户注册区</legend>
+            用户名:<input type="text" name="username" value="">
+            <br>
+            登录密码:<input type="password" name="password" value="">
+            <br>
+            密码确认:<input type="text" name="confirmpwd" value="">
+            <br>
+            <input type="submit" value="用户注册">
+            <input type="reset" value="Reset">
+        </fieldset>
+
+    </form>
+</div>
+
+<script>
+    let setup_btn = document.querySelector('.setup-btn');
+    let login_btn = document.querySelector('.login-btn');
+    let setup_container = document.querySelector('.container-setup');
+    let login_container = document.querySelector('.container-login');
+    setup_btn.addEventListener('click', function () {
+        setup_container.style.display = 'block';
+        login_container.style.display = 'none';
+    })
+    login_btn.addEventListener('click', function () {
+        setup_container.style.display = 'none';
+        login_container.style.display = 'block';
+    })
+
+    function check1(form) {
+        if (form.username.value.length === 0) {
+            alert('用户名不能为空！');
+            form.username.focus();
+            return false;
+        }
+        if (form.password.value.length === 0) {
+            alert('密码不能为空！');
+            form.password.focus();
+            return false;
+        }
+        if (form.username.value.length < 6) {
+            alert('用户名至少为6位，请重新输入！');
+            form.password.focus();
+            return false;
+        }
+        if (form.password.value.length < 6) {
+            alert('密码要至少为6位，请重新输入！');
+            form.password.focus();
+            return false;
+        }
+        alert('Welcome！');
+        return true;
+    }
+
+    function check2(form) {
+        if (form.username.value.length === 0) {
+            alert('用户名不能为空！');
+            form.username.focus();
+            return false;
+        }
+        if (form.password.value.length === 0) {
+            alert('密码不能为空！');
+            form.password.focus();
+            return false;
+        }
+        if (form.confirmpwd.value.length === 0) {
+            alert('确认密码不能为空！');
+            form.password.focus();
+            return false;
+        }
+        if (form.username.value.length <= 6) {
+            alert('用户名要大于6位，请重新输入！');
+            form.password.focus();
+            return false;
+        }
+        if (form.password.value.length <= 6) {
+            alert('密码要大于6位，请重新输入！');
+            form.password.focus();
+            return false;
+        }
+        if (form.password.value != form.confirmpwd.value) {
+            alert('你两次输入的密码不一致，请重新输入！');
+            form.confirmpwd.focus();
+            return false;
+        }
+        alert('Registration Success.');
+        return true;
+    }
+
+</script>
+</body>
+</html>

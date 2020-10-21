@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 思路
+      // 顺序指针获取待插入元素
+      // 逆序遍历已排序指针，找到第一个比自己小的元素，插入到该元素后面
+      let array = [5, 3, 9, 8, 2, 1];
+      function MoveBack(array, start, end) {// 用于将元素往后挪位并且将最后一位插入到开始位置
+        let exchange = array[end]; // 保留最后一个元素
+        for (let i = end - 1; i >= start; i--) { // 将前面后面的元素挪一位
+          array[i+1] = array[i];
+        }
+        array[start] = exchange;
+      }
+
+
+      function InsertSort(array) {
+        for (let i = 1; i < array.length; i++) {
+          let isChange = false;
+          console.log(array);
+          for (let j = i - 1; j >= 0; j--) {
+            if (array[i] >= array[j]) {
+              MoveBack(array,j+1,i);
+              isChange = true;
+              break;
+            }
+          }
+          if(isChange){
+            isChange = false;
+            continue;
+          }else{
+            MoveBack(array,0,i)
+          }
+          
+        }
+        console.log(array);
+      }
+      InsertSort(array);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo02_全局变量和局部变量</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //1.var操作符：局部变量
+    var a = "hi";
+    document.write("<h1>1. " + a + "<h2>");
+
+    //本段是局部变量如果离开了函数，a2的赋值就会失效，并且在控制台报错
+    // function testA() {
+    //     var a2 = 100;
+    // }
+    // testA();
+    // console.log(a2);
+
+    //2.不使用var操作符：全局变量
+    b = "hi";
+    document.write("<h1>2. " + b + "<h2>");
+    function testB() {
+        b2 = 100;
+    }
+    testB();
+    document.write("<h1>2.1. " + b2 + "<h2>");
+
+
+</script>
+</body>
+</html>

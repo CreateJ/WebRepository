@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Queue(){
+        // 属性
+        this.items = [];
+        // 方法
+        // 1.将元素添加到队列enterQueue
+        // 可以传入一个或多个参数
+        Queue.prototype.enQueue = function (element) {
+            this.items.push(element);
+        }
+        // 2.从队列中删除前端元素delQueue
+        Queue.prototype.deQueue = function () {
+            this.items.shift();
+        }
+
+
+
+
+    }
+</script>
+</body>
+</html>

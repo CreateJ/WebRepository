@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app div{
+      float: left;
+      padding: 0 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <cpn>
+      <!-- 使用的时候需要填写插槽的名字 -->
+      <left slot='left'></left>
+      <center-slot slot='center'></center-slot>
+      <right slot='right'></right> 
+    </cpn>
+
+
+    <cpn>
+      <left slot='left'></left>
+      <right slot='right'></right>
+    </cpn>
+
+    <cpn>
+      <left slot="left"></left>
+      <left slot="center"></left>
+      <left slot="right"></left>
+    </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <!-- 给插槽命名 -->
+      <slot name="left"><div><h4>左边</h4></div></slot>
+      <slot name="center"><div><h4>中间</h4></div></slot>
+      <slot name="right"><div><h4>右边</h4></div></slot>
+    </div>
+  </template>
+
+  <template id="left">
+    <div>
+      <h4><</h4>
+    </div>
+  </template>
+  <template id="center">
+    <div>
+      <h4>|</h4>
+    </div>
+  </template>
+  <template id="right">
+    <div>
+      <h4>></h4>
+    </div>
+  </template>
+  <script src="../../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '',
+      
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+        },
+        left: {
+          template: '#left'
+        },
+        right:{
+          template: '#right'
+        },
+        centerSlot:{
+          template: '#center'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

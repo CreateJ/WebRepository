@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 思路
+      // 贪心策略
+      // 当前指针所指元素之前的和小于0，则丢弃当前元素之前的数列
+      let nums = [-2,1,-3,4,-1,2,1,-5,4];
+      function maxSubArray(nums){
+        let preSum = 0;
+        let nowSum = 0;
+        let maxSum = -9999999;
+        for(let i = 0; i<nums.length;i++){
+          nowSum = preSum + nums[i];
+          preSum = nowSum;
+          if(nowSum > maxSum){
+            maxSum = nowSum;
+          }
+          if(nowSum <= 0){
+            if(nowSum > maxSum){
+              maxSum = nowSum
+            }
+            preSum = 0;
+            nowSum = 0;
+          }
+          console.log("preSum:"+preSum+" "+i);
+          console.log("nowSum:"+nowSum+" "+i);
+          console.log("maxSum:"+maxSum+" "+i);
+        }
+        return maxSum
+      }
+      maxSubArray(nums);
+
+    </script>
+  </body>
+</html>

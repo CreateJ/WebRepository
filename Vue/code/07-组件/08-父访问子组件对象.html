@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <br><button @click="handle1">展示子组件1的message</button>
+      <br><button @click="handle2">展示子组件1的message</button>
+      <child1></child1>
+      <!-- 这里给组件2添加ref关键字 -->
+      <child2 ref="child2"></child2>
+    </div>
+    <template id="child1-template">
+      <div>{{message}}</div>
+    </template>
+    <template id="child2-template">
+      <div>{{message}}</div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "parent",
+        },
+        methods:{
+          handle1: function(){
+            // 方法1：$childern获取数据
+            console.log(this.$children[0].message);
+          },
+          handle2: function(){
+            // 需要在子标签后加上ref关键字，然后就可以通过refs访问
+            console.log(this.$refs.child2.message);
+          }
+        },
+        components: {
+          child1: {
+            template: "#child1-template",
+            data: function () {
+              return {
+                message: "child1",
+              };
+            },
+          },
+          child2: {
+            template: "#child2-template",
+            data: function () {
+              return {
+                message: "child2",
+              };
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

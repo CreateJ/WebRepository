@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind基本使用</title>
+</head>
+<body>
+<div id="app">
+  <!--只有使用v-bind修饰的属性，才是可以动态变化的-->
+  <img v-bind:src="imgURL" alt="">
+  <!--错误写法-->
+  <!--<img src="imgURL" alt="">-->
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      imgURL:'https://images.pexels.com/photos/163077/' +
+          'mario-yoschi-figures-funny-163077.jpeg?' +
+          'auto=compress&cs=tinysrgb&dpr=1&w=500',
+    },
+    methods: {
+
+    }
+  })
+</script>
+</body>
+</html>

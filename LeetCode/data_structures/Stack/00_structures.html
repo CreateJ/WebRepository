@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Stack(){
+        this.items = [];
+
+        // 1、入栈
+        Stack.prototype.push = function (element) {
+            this.items.push(element);
+        }
+        // 2、出栈
+        Stack.prototype.pop = function () {
+            return this.items.pop();
+        }
+        // 3、查看栈顶元素
+        Stack.prototype.peek = function () {
+            return this.items.peek();
+        }
+        // 4、判断栈是否为空
+        Stack.prototype.isEmpty = function () {
+            return this.items.length == 0;
+        }
+        // 5、获取栈中元素的数量
+        Stack.prototype.size = function () {
+            return this.items.length;
+        }
+        // 6、toString方法
+        Stack.prototype.toString = function(){
+            var resultString = '';
+            for(var i = 0; i < items.length; i++){
+                resultString += this.items[i] + ' ';
+            }
+            return resultString;
+        }
+    }
+
+    var s = new Stack();
+
+    s.push(1);
+    s.push(2);
+    console.log(s.toString());
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-计数器案例</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数:{{num}}</h2>
+    <button v-on:click="sub">-</button>
+    <button v-on:click="inc">+</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            num: 0,
+        },
+        methods: {
+            inc:function () {
+                this.num++;
+                console.log(this.num);
+            },
+            sub: function () {
+                this.num--;
+                console.log(this.num);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let resStr = "";
+      let n = 10;
+      let res = ["1"];
+
+      for (let i = 1; i < n; i++) {
+        let lastRes = res[i - 1];
+        let nowRes = "";
+        let sum = 0;
+        let time = 1;
+        for (let j = 0; j < lastRes.length - 1; j++) {
+          if (lastRes[j] == lastRes[j + 1]) {
+            time++;
+            continue;
+          } else {
+            sum = lastRes[j];
+            nowRes = nowRes+ (sum+"") + (time+"");
+            sum = 0;
+            time = 1;
+          }
+        }
+        sum = lastRes[lastRes.length-1];
+        nowRes += sum + "" + time;
+        // console.log(nowRes);
+        sum = 0;
+        time = 0;
+        res.push(nowRes);
+      }
+      console.log(res);
+
+    </script>
+  </body>
+</html>

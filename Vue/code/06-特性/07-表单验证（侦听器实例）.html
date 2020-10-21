@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model.lazy="uname"><span>{{unameWarning}}</span>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      uname: '',
+      unameWarning: '',
+    },
+    methods: {
+      checkUname: function (name) {
+        var that = this;
+        setTimeout(function () {
+          if (that.uname == 'admin') {
+            that.unameWarning = '当前用户名已被使用';
+          } else {
+            that.unameWarning = '当前用户名可以使用';
+          }
+        }, 2000)
+      }
+    },
+    watch: {
+      uname: function (val) {
+        this.unameWarning = '正在检验...';
+        this.checkUname(val);
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>力扣0009:回文(简单)</title>
+</head>
+<body>
+<script>
+    // Math.floor(x),返回一个小于或等于当前数字的最大整数
+    // Math.log(x),返回当前值的自然对数
+    var isPalindrome = function(x){
+        let k = x ;
+        if(k < 0) {return false;}
+        let n = 10 ** Math.floor(Math.log10(k));
+        while(k >= 0 && n>1){
+            if(k % 10 !== Math.floor( k / n )){return false;}
+            k = Math.floor( (k % n ) /10 );
+            n = n/100;
+        }
+        return true;
+    }
+
+    console.log(isPalindrome(121));
+</script>
+</body>
+</html>

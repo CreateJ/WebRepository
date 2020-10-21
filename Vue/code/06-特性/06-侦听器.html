@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>侦听器实例</title>
+</head>
+<body>
+<div id="app">
+  FirstName:<input type="text" v-model="FirstName"><br>
+  LastName:<input type="text" v-model="LastName"><br>
+  FullName<div>{{fullName}}</div><br>
+  FullName-Method<div>{{getFullName()}}</div><br>
+  FullName-Computed<div>{{compFullName}}</div><br>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      FirstName: 'Jamie',
+      LastName: 'Wang',
+      fullName: 'Jamie Wang'
+    },
+    methods: {
+      getFullName: function () {
+        return this.FirstName + ' ' + this.LastName;
+      }
+    },
+    computed: {
+      compFullName: function () {
+        return this.FirstName + ' ' + this.LastName;
+      }
+    },
+    watch: {
+      FirstName: function (val) {
+        this.fullName = val + ' ' + this.LastName
+      },
+      LastName: function (val) {
+        this.fullName = this.FirstName + ' ' + this.LastName;
+      }
+    }
+  })
+</script>
+</body>
+</html>
