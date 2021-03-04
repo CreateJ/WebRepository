@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Father {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        running() {
+          console.log("I am running!");
+        }
+      }
+      class Son extends Father {
+        constructor(name,age,sayHello){
+          super(name,age)
+          this.sayHello = sayHello;
+        }
+      }
+
+      const son = new Son("二蛋",18,'你好');
+      son.running();
+      console.log(son.name);
+    </script>
+  </body>
+</html>

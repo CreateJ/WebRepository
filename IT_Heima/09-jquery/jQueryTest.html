@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery初试</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<div class="abc">
+    123
+</div>
+<br>
+<div class="def">
+    456
+</div>
+<script>
+    var abc = $('.abc');
+    var data = '456';
+    abc.click(function (){
+        data = $(this).text();
+        console.log(data);
+    })
+    var def = $('.def');
+    def.click(function (){
+        console.log(data);
+    })
+    console.log(data)
+</script>
+</body>
+</html>

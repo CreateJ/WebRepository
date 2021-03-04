@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>力扣0763:划分字母区间</title>
+  </head>
+  <body>
+    <script>
+      // 字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一个字母只会出现在其中的一个片段。
+      // 返回一个表示每个字符串片段的长度的列表。
+      let str = "ababcbacadefegdehijhklij";
+      function partitionLabels(S) {
+        let dir = {};
+        for (let i = 0; i < S.length; i++) {
+          dir[S[i]] = i;
+        }
+        // console.log(dir);
+
+        let temp = [];
+        let now_max = 0;
+        for(let i = 0; i< S.length; i++) {
+          if(dir[S[i]]>now_max){
+            now_max = dir[S[i]];
+          }
+          if(i == now_max){
+            temp.push(now_max)
+          }
+        }
+        let res = [];
+        if(temp[0]!=null){
+          res[0] = temp[0]+1;
+        }
+
+        for(let i=1;i<temp.length;i++){
+          res[i] = temp[i]-temp[i-1]
+        }
+        return res
+      }
+      partitionLabels(str)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>力扣0069:x的平方根</title>
+  </head>
+  <body>
+    <script>
+      var mySqrt = function (x) {
+        if (x == 0) {
+          return 0;
+        }
+        if (x < 4) {
+          return 1;
+        }
+        let front = 0;
+        let end = Math.ceil(x / 2);
+        let now = Math.floor((end + front) / 2);
+        while (end - front != 1) {
+          now = Math.floor((end + front) / 2);
+          console.log(front + "-" + end);
+          if (now * now <= x) {
+            front = now;
+          } else {
+            end = now;
+          }
+          if (end - front == 1) break;
+        }
+        return end * end == x ? end : front;
+      };
+      console.log(mySqrt(2));
+    </script>
+  </body>
+</html>

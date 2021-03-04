@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        border: red 1px solid;
+        width: 798px;
+        height: 598px;
+        margin: 100px auto;
+      }
+      .navBox {
+        height: 50px;
+        border-bottom: black 1px solid;
+      }
+      .nav {
+        float: left;
+        list-style: none;
+      }
+      .navItem {
+        position: relative;
+        float: left;
+        width: 78px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 5px;
+        text-align: center;
+        border-right: black 1px solid;
+        border-bottom: black 1px solid;
+      }
+      .navActive {
+        border-bottom: white 1px solid;
+      }
+      .delete {
+        position: absolute;
+        left: 69px;
+        top: -1px;
+        background-color: red;
+        height: 20px;
+        line-height: 12px;
+        width: 20px;
+        border-radius: 0 0 0 40px;
+      }
+      .content {
+        width: 796px;
+        height: 546px;
+      }
+      .add {
+        float: right;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 30px;
+      }
+      .contentItem {
+        display: none;
+      }
+      .contentActive {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navBox">
+        <ul class="nav">
+          <li class="navItem navActive">
+            1
+            <div class="delete">x</div>
+          </li>
+          <li class="navItem">2</li>
+          <li class="navItem">3</li>
+        </ul>
+        <span class="add">+</span>
+        <span style="clear: both"></span>
+      </div>
+      <div class="content">
+        <section class="contentItem contentActive">1</section>
+        <section class="contentItem">2</section>
+        <section class="contentItem">3</section>
+      </div>
+    </div>
+  </body>
+</html>

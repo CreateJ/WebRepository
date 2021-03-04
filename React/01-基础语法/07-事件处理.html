@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+      // 1.按钮点击alert输出打印成功
+      // class Btn extends React.Component{
+      //   constructor(props){
+      //     super(props);
+      //   }
+      //   showAlert(){
+      //     alert("点击成功")
+      //   }
+      //   render(){
+      //     return (
+      //       <button onClick={this.showAlert}>点击</button>
+      //     )
+      //   }
+      // }
+
+      // ReactDOM.render(
+      //   <Btn/>,
+      //   document.getElementById('root')
+      // );
+
+      class Toggle extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { isToggleOn: true };
+          // 可以使用箭头函数来绑定this
+          this.changeToggle = this.changeToggle.bind(this);
+        }
+        changeToggle() {
+          this.setState((state) => ({
+            isToggleOn: !state.isToggleOn,
+          }));
+        }
+        render() {
+          return (
+            <div>
+              <h1>{this.state.isToggleOn ? "On" : "Off"}</h1>
+              <button onClick={this.changeToggle}>切换</button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Toggle />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

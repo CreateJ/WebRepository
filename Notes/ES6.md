@@ -1,3 +1,64 @@
+# 1.面向对象
+
+## 1.类的定义
+
+```javascript
+class ClassName{}
+```
+
+### tips:  
+
+1. 首字母大写（规范）
+
+2. 方法与属性之间不用逗号和分号
+3. 类没有声明提升，只有定义好了才能用
+
+```javascript
+	class Star {
+        constructor(name) {
+          this.name = name;
+        }
+        sing(song) {
+          console.log(this.name + song);
+        }
+      }
+```
+
+## 2.继承
+
+```javascript
+class SonClassName extends FatherClassName{}
+```
+
+```
+  class Father{
+    constructor(x,y) {
+      this.x = x;
+      this.y = y;
+    }
+    sum(){
+      return this.x+ this.y;
+    }
+  }
+  class Son extends Father{
+    constructor(x,y) {
+      super(x,y);
+    }
+  }
+  var son = new Son(1,2);
+  console.log(son.sum())
+```
+
+
+
+
+
+# this指向问题
+
+在类的constructor中，this指向了实例对象
+
+在类的方法中，this指向了方法的调用者
+
 # let 与 const 关键字
 
 let能享有块级作用域的特点，一个变量在同一个作用域中无法被let声明2次

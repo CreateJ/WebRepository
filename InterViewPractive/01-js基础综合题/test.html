@@ -7,21 +7,32 @@
   </head>
   <body>
     <script>
-      function SuperType(){
-        this.property = true;
+      function moveBack(arr, start, insert) {
+        for (let i = 0; i < 6 - start; i++) {
+          arr[6 - 1 - i] = arr[6 - i - 2];
+        }
+        arr[start - 1] = insert;
+        return arr;
       }
-      SuperType.prototype.getSuperVal = function(){
-        return this.property;
-      }
-      function SubType(){
-        this.property = false;
-      }
-      SubType.prototype = new SuperType();
-      SubType.prototype.getSubVal = function(){
-        return this.property;
-      }
-      let instant = new SubType();
-      console.log(instant.getSuperVal());
+
+      console.log(moveBack([1, 2, 3, 4, 5, 0], 3, 8));
+
+      const videoStitching = (clips, T) => {
+        clips.sort((a, b) => a[0] - b[0]);
+        const dp = new Array(T + 1).fill(101);
+        dp[0] = 0; // base case
+
+        for (let i = 0; i < clips.length; i++) {
+          const [start, end] = clips[i];
+          for (let j = start + 1; j <= end; j++) {
+            dp[j] = Math.min(dp[j], dp[start] + 1);
+          }
+        }
+        if (dp[T] == 101) {
+          return -1;
+        }
+        return dp[T];
+      };
     </script>
   </body>
 </html>

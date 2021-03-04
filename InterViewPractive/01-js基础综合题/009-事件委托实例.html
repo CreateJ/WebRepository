@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件委托实例</title>
+</head>
+<body>
+<ul id="father">
+  <li class="son">111</li>
+  <li class="son">222</li>
+  <li class="son">333</li>
+  <li class="son">444</li>
+  <li class="son">555</li>
+</ul>
+<script>
+  const elFather = document.getElementById('father');
+
+  elFather.onclick = function (event){
+    console.log(event.target.innerHTML)
+  }
+</script>
+</body>
+</html>

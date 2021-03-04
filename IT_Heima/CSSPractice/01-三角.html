@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01-三角</title>
+  <style>
+    .box {
+      position: relative;
+      margin: 40px 0;
+      width: 200px;
+      height: 400px;
+      background: pink;
+    }
+    .ang {
+      position: absolute;
+      right: 0;
+      top: -40px;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-bottom: 20px solid pink;
+    }
+    .otherAng {
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-bottom: 30px solid lightblue;
+      border-top: 10px solid lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="ang"></span>
+  </div>
+  <div class="otherAng">
+  </div>
+</body>
+</html>
