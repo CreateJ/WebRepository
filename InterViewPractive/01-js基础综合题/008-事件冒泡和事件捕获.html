@@ -25,9 +25,11 @@
 </head>
 <body>
 <div id="div1">
+  1
   <div id="div2">
+    2
     <div id="div3">
-
+      3
     </div>
   </div>
 </div>
@@ -36,23 +38,29 @@
   let div2 = document.getElementById('div2');
   let div3 = document.getElementById('div3');
   // 事件冒泡
-  // div1.onclick = function(){
-  //   console.log(this.id)
-  // }
-  // div2.onclick = function() {
-  //   console.log(this.id)
-  // }
-  // div3.onclick = function() {
-  //   console.log(this.id)
-  // }
-
-  // 事件捕获
-  let fun1 = function(){
+  div1.onclick = function () {
     console.log(this.id)
   }
-  div1.addEventListener('click', fun1, false);
-  div2.addEventListener('click', fun1, false);
-  div3.addEventListener('click', fun1, false);
+  div2.onclick = function () {
+    console.log(this.id)
+  }
+  div3.onclick = function () {
+    console.log(this.id)
+  }
+
+  // 事件捕获
+  let fun1 = function () {
+    console.log(this.id)
+  }
+  let fun2 = function () {
+    console.log(this.id + 1)
+  }
+  let fun3 = function () {
+    console.log(this.id + 2)
+  }
+  // div1.addEventListener('click', fun1, false);
+  // div2.addEventListener('click', fun2, false);
+  // div3.addEventListener('click', fun3, false);
 </script>
 </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <!-- // <script src="vue.js"></script> -->
+  <script src="http://unpkg.com/vue/dist/vue.js"></script>
+
+  <script type="text/javascript">
+    window.onload = function(){
+      Vue.component("son", {
+        template: `<img :src='imgUrl' @load='load'/>`,
+        props:['imgUrl'],
+        mounted:()=>{
+          console.log(this.imgUrl,'mounted')
+        },
+        methods: {
+          load(){
+            console.log('图片链接已替换')
+          }
+        }
+      });
+      var vm = new Vue({
+        el:'#box',
+        data: {
+          imgURL: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2771978851,2906984932&fm=26&gp=0.jpg',
+          info:[{key:1},{key:3},{key:4}]
+        },
+        mounted:()=>{
+          console.log('mounted');
+        },
+        methods:{
+          show(e,item){
+            e.preventDefault();
+            console.log(item)
+            console.log(e)
+          },
+          changeImage(){
+            this.imgURL = 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1603365312,3218205429&fm=26&gp=0.jpg'
+          }
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+<div id="box">
+  <button @click="changeImage">123</button>
+  <Son :img-url="imgURL"></Son>
+  <!--<button @click="()=>{}">添加</button>-->
+  <!--<ul>-->
+  <!--  <li v-for="item in info"-->
+  <!--      :key="item.key"-->
+  <!--      @contextmenu="(e)=>{show(e,item.key)}"-->
+  <!--  >{{item.key}}</li>-->
+  <!--</ul>-->
+</div>
+</body>
+</html>
